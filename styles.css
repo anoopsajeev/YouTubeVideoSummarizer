@@ -10,15 +10,13 @@ body {
     border: 1px solid #ccc;
     border-radius: 5px;
     background-color: red;
-}
-
-h1 {
     text-align: center;
     color: white;
 }
 
 input[type="text"] {
-    width: 570px;
+
+    width: 90%;
     padding: 10px;
     margin-bottom: 10px;
 }
@@ -48,10 +46,20 @@ button:hover {
 #summary {
     margin-top: 20px;
 }
+.summarycontainer {
+    max-width: 600px;
+    margin: 100px auto;
+    padding: 30px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #009c08;
+    text-align: center;
+    color: white;
+}
 footer {
 	text-align: center;
 	padding: 8px 0;
-	position: absolute;
+	position: fixed;
 	width: 100%;
 	left: 0;
 	bottom: 0;
