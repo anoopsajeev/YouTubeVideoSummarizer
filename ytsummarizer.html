@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YouTube Video Summarizer</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+	<div class="container">
+        <h1>YouTube Video Summarizer</h1>
+        <input type="text" id="videoURL" placeholder="Enter YouTube Video Link">
+        <div class="button"><button onclick="summarizeVideo()">Summarize</button></div>
+        <div id="loading" style="display: none;">Loading.....</div>
+		<div id="summary" style="display: none;">
+			<h2>Summary:</h2>
+			<p id="summaryText"></p>
+			<p><a id="fullTranscriptLink" href="#" target="_blank">View Full Transcript</a></p>
+			<p><a id="originalVideoLink" href="#" target="_blank">Watch Original Video on YouTube</a></p>
+		</div>
+		<div id="errorMessage"></div>
+	</div>
+
+    <script src="script.js"></script>
+    <footer>
+		<p>Developed by Ashbin and Team, S4 BSc Computer Science, UIT Alappuzha</p>
+	</footer>
+</body>
+</html>
