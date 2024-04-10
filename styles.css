@@ -42,6 +42,7 @@ button:hover {
 .error
 {
 	text-align: center;
+	padding: 10px;
 }
 
 #summary {
