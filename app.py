@@ -1,4 +1,5 @@
 from flask import Flask, request, jsonify
+from flask_cors import CORS
 import google.generativeai as genai
 from youtube_transcript_api import YouTubeTranscriptApi
 from dotenv import load_dotenv
@@ -6,6 +7,7 @@ import os
 
 load_dotenv()
 app = Flask(__name__)
+CORS(app)
 genai.configure(api_key = os.getenv("GOOGLE_API_KEY"))
 
 prompt = """You are a YouTube summary generator. You will take the transcript text of a youtube video and give the summary of entire video in points (No text formatting like bold). 
