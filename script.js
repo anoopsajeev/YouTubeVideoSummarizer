@@ -1,11 +1,14 @@
 function summarizeVideo() {
     var videoURL = document.getElementById("videoURL").value;
+    var regExp = /^.*(youtu\.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]*).*/;
+    var match = videoURL.match(regExp);
     // Validate video URL (you can add more robust validation)
-    if (!videoURL.includes("youtube.com/watch?v=")) {
+    if (!(match && match[2].length == 11)) {
         document.getElementById("errorMessage").innerHTML = "Please enter a valid YouTube video URL.";
         document.getElementById("errorMessage").style.display = "block";
         return;
     }
+    var videoID = match[2];
 
     // Hide any previous error messages or summaries
     document.getElementById("errorMessage").style.display = "none";
@@ -19,7 +22,7 @@ function summarizeVideo() {
         headers: {
             'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ video_url: videoURL }),
+        body: JSON.stringify({ video_ID: videoID }),
     })
     .then(response => response.json())
     .then(data => {
