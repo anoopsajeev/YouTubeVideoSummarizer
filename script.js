@@ -3,7 +3,7 @@ function summarizeVideo() {
     var regExp = /^.*(?:(?:youtu\.be\/|v\/|vi\/|u\/\w\/|embed\/|shorts\/)|(?:(?:watch)?\?v(?:i)?=|\&v(?:i)?=))([^#\&\?]*).*/;
     var match = videoURL.match(regExp);
     // Validate video URL (you can add more robust validation)
-    if (!(match && match[2].length == 11)) {
+    if (!match) {
         document.getElementById("errorMessage").innerHTML = "Please enter a valid YouTube video URL.";
         document.getElementById("errorMessage").style.display = "block";
         return;
