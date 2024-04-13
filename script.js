@@ -14,7 +14,7 @@ function summarizeVideo() {
     // Show loading message
     document.getElementById("loading").style.display = "block";
 
-    fetch('http://127.0.0.2:6000/summarize', {
+    fetch('http://127.0.0.1:5000/summarize', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
