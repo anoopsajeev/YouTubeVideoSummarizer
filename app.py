@@ -43,5 +43,5 @@ def summarize_video():
     return jsonify({'summary': summary})
 
 if __name__ == '__main__':
-    app.run(host='127.0.0.2', port=6000)
+    app.run()
     
