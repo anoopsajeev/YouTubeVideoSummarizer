@@ -8,7 +8,7 @@ function summarizeVideo() {
         document.getElementById("errorMessage").style.display = "block";
         return;
     }
-    var videoID = match[2];
+    var videoID = match[1];
 
     // Hide any previous error messages or summaries
     document.getElementById("errorMessage").style.display = "none";
