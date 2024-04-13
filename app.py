@@ -13,10 +13,9 @@ genai.configure(api_key = os.getenv("GOOGLE_API_KEY"))
 prompt = """You are a YouTube summary generator. You will take the transcript text of a youtube video and give the summary of entire video in points (No text formatting like bold). 
 Please provide the summary of the following transcript: """
 
-def extract_transcript_details(youtube_video_url):
+def extract_transcript_details(video_id):
 
     try:
-        video_id = youtube_video_url.split("=")[1]
         transcript_text = YouTubeTranscriptApi.get_transcript(video_id)
         transcript = ""
         for i in transcript_text:
@@ -32,8 +31,8 @@ def generate_gemini_content(transcript_text, prompt):
     response = model.generate_content(prompt + transcript_text)
     return response.text
 
-def generate_summary(link):
-    transcript = extract_transcript_details(link)
+def generate_summary(video_id):
+    transcript = extract_transcript_details(video_id)
     return generate_gemini_content(transcript, prompt)
 
 @app.route('/summarize', methods=['POST'])  # Specify POST method
@@ -41,8 +40,8 @@ def generate_summary(link):
 
 def summarize_video():
     data = request.get_json()
-    video_url = data['video_url']
-    summary = generate_summary(video_url)
+    video_id = data['video_ID']
+    summary = generate_summary(video_id)
     return jsonify({'summary': summary})
 
 if __name__ == '__main__':
